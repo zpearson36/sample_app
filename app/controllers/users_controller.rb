@@ -13,7 +13,13 @@ class UsersController < ApplicationController
       flash[:success] = "Welcome to the Sample App!"
       redirect_to @user
     else
-      render 'new'
+      error_count = @user.errors.count
+      err_msg = "There are " + error_count.to_s + " error(s) present:"
+      @user.errors.full_messages.each do |msg|
+        err_msg = err_msg + "<br> - " + msg
+      end
+      flash[:danger] = err_msg
+      redirect_to action: 'new'
     end
   end
 
