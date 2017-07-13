@@ -1,3 +1,6 @@
 # Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
 
-#empty fixtures
+jeff:
+  name: Jeff Lebowski
+  email: thedude@abides.com
+  password_digest: <%= User.digest('password') %>

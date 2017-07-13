@@ -9,7 +9,8 @@ class UsersSignupTest < ActionDispatch::IntegrationTest
                                          password:              "foo",
                                          password_confirmation: "bar" } }
     end
-    assert_template 'users/new'
+    
+    assert_redirected_to signup_url
   end
 
   test "valid signup information" do
